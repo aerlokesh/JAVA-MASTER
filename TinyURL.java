@@ -51,11 +51,7 @@ class TinyUrlSystem{
         if(longUrl==null || longUrl.isEmpty()) throw new InvalidURLException("LongUrl {} is empty");
         if(longToShort.containsKey(longUrl)) return longToShort.get(longUrl);
         String code;
-        try{
-            code=generateShortCode();
-        }catch (ShortCodeGenerationException shortCodeGenerationException){
-            throw shortCodeGenerationException;
-        }
+        code=generateShortCode();
         shortToLong.put(code, longUrl);
         String shortUrl = BASE_URl + code;
         longToShort.put(longUrl, shortUrl);
